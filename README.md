@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Icon/mango%20test.png" width="140" alt="Mango Testing icon">
+<img src="mango%20test.png" width="140" alt="Mango Testing icon">
 
 # 🥭 Mango Testing
 
@@ -12,6 +12,7 @@ Made by Mingyu 🧑‍💻
 
 ![macOS](https://img.shields.io/badge/macOS-11%2B-202020?style=for-the-badge&logo=apple&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?style=for-the-badge&logo=windows&logoColor=white)
+![Python](https://img.shields.io/badge/Python-Flask-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Version](https://img.shields.io/badge/version-1.0.0-7C5CFF?style=for-the-badge)
 ![Price](https://img.shields.io/badge/price-free-2EA043?style=for-the-badge)
 ![Privacy](https://img.shields.io/badge/data%20sent%20anywhere-none-0EA5E9?style=for-the-badge)
@@ -27,9 +28,10 @@ Made by Mingyu 🧑‍💻
 > Nothing is uploaded anywhere. 🔒
 
 > [!IMPORTANT]
-> **A fresh install is empty.** 📭 No word list, no history, no streak and no stats — everything
-> you build up is written to a single file in your own Documents folder, and it never leaves your
-> computer.
+> **This repository is the app, not your data.** 📭 A fresh clone starts with an empty word list,
+> no history, no streak and no stats — `data/store.py` writes the defaults on first run. Your own
+> `data.json` is deliberately untracked, so cloning this never hands anyone your word list or
+> your test results.
 
 ---
 
@@ -37,10 +39,10 @@ Made by Mingyu 🧑‍💻
 
 | | | |
 | --- | --- | --- |
-| [🎁 What it is](#-what-it-is) | [📥 Install](#-install) | [🍎 macOS](#-macos) |
-| [🪟 Windows](#-windows) | [🔤 Words](#-words) | [🌍 Geo](#-geo) |
-| [🗺️ Where the maps come from](#️-where-the-maps-come-from) | [🕘 History and stats](#-history-and-stats) | [📡 Share](#-share) |
-| [🗂️ Where things live](#️-where-things-live) | [🔔 Updates](#-updates) | [⚖️ Licence](#️-licence) |
+| [📥 Install](#-install) | [🍎 macOS](#-macos) | [🪟 Windows](#-windows) |
+| [🔤 Words](#-words) | [🌍 Geo](#-geo) | [🗺️ Where the maps come from](#️-where-the-maps-come-from) |
+| [🕘 History and stats](#-history-and-stats) | [📡 Share](#-share) | [🗂️ Where things live](#️-where-things-live) |
+| [🧱 Source layout](#-source-layout) | [🔨 Running from source](#-running-from-source) | [⚖️ Licence](#️-licence) |
 
 ---
 
@@ -60,20 +62,26 @@ words to another machine on the Wi-Fi, and the dashboard adds up the streak and 
 
 ## 📥 Install
 
-Everything is on **[the Releases page](https://github.com/mannnnnnnngo/MangoTesting/releases)** —
-a `.dmg` for Macs and a `.zip` for Windows.
-
 ### 🍎 macOS
+
+Two installers get built, both into `dist/`:
+
+| Installer | Who it's for | Word list |
+|---|---|---|
+| `Mango Testing (Mine) Installer.dmg` | you | your current list is already inside |
+| `Mango Testing Installer.dmg` | anyone you hand it to | starts empty |
+
+Both keep their data in `~/Documents/Mango Testing/data.json`. Send people the **second** one —
+the first has a word list, history and stats baked into it.
 
 Double-click the `.dmg`, drag the mango into Applications, then open it from Launchpad. It runs
 as a real Mac app — its own window, Dock icon, menu bar and Cmd+Q — not a browser tab. Under the
 hood a small local server runs as an invisible child process and the window is a `WKWebView`
-pointed at it; quitting the app stops the server. Your data lives in
-`~/Documents/Mango Testing/data.json`.
+pointed at it; quitting the app stops the server.
 
-The app is a universal binary (Apple silicon + Intel, macOS 11+) and is ad-hoc signed. It is
-*not* signed with a Developer ID — that needs a paid Apple account — so the first launch shows
-the unidentified-developer warning. **Right-click the app → Open → Open** clears it permanently. 🔓
+The executable is a universal binary (Apple silicon + Intel, macOS 11+) and is ad-hoc signed. It
+is *not* signed with a Developer ID — that needs a paid Apple account — so first launch shows the
+unidentified-developer warning. Right-click the app → **Open** → **Open** clears it permanently.
 
 > [!TIP]
 > The app needs Python, which every Mac has once Apple's free Command Line Tools are installed.
@@ -83,27 +91,75 @@ the unidentified-developer warning. **Right-click the app → Open → Open** cl
 > Python never looks like an app that just does nothing. 🐍
 
 A Mac missing the tools still *has* a file at `/usr/bin/python3` — a stub whose only job is to
-prompt for them — so the app tests that the interpreter actually runs, rather than that the path
-exists.
+prompt for them — so the launcher tests that the interpreter actually runs, rather than that the
+path exists.
 
 ### 🪟 Windows
 
-Download `Mango Testing (Portable).zip` (~12 MB), extract it, and double-click
-**`Mango Testing.bat`**. Nothing is installed, and **you don't need Python** — the zip carries
-its own interpreter. Your data lives in `%USERPROFILE%\Documents\Mango Testing\data.json`,
-mirroring the Mac, so the two are interchangeable on one PC.
+Two builds, and **the portable one is the one to hand out** — it's the only one Windows doesn't
+put a scare screen in front of.
 
-You get a real app here too: its own window, no address bar, no tabs, its own taskbar button,
-close-to-quit. The window is Edge started in Chromium's chromeless mode; Chrome and Brave are
-picked up as fallbacks, and a PC with no Chromium at all opens the default browser instead.
+| Build | What you get | SmartScreen |
+|---|---|---|
+| `scripts/build_windows_portable.py` | a `.zip` — extract and run | says nothing |
+| `scripts/build_windows.py` | a `Setup.exe` installer | blocks it unless you sign it |
+
+Both give a real app: its own window, no address bar, no tabs, its own taskbar button,
+close-to-quit. Data lives in `%USERPROFILE%\Documents\Mango Testing\data.json`, mirroring the
+Mac, so the two are interchangeable on one PC.
+
+#### Portable (recommended)
+
+```bat
+py scripts\build_windows_portable.py            :: both variants -> dist\
+py scripts\build_windows_portable.py personal   :: or just one
+```
+
+Out comes `Mango Testing (Portable).zip` (~12 MB) holding the app's `.py` files, Flask, and the
+python.org embeddable interpreter. Whoever you send it to extracts it and double-clicks
+`Mango Testing.bat`; nothing is installed and no Python is needed.
+
+The window is Edge started with `--app=`, Chromium's chromeless mode — the same engine WebView2
+uses, so it looks like the frozen build does. Chrome and Brave are picked up as fallbacks, and a
+PC with no Chromium at all opens the default browser instead.
+
+Unlike the `.exe` build this **doesn't have to run on Windows** — it only copies files and asks
+pip for wheels built for another platform, so a Mac can produce the Windows zip. It needs the
+network the first time, to fetch the interpreter and the Flask wheels; both are then cached in
+`build/`.
 
 > [!TIP]
-> **Right-click the zip → Properties → tick Unblock** *before* extracting. That clears the Mark of
-> the Web from everything inside in one go and Windows stays completely quiet. Skip it and you get
-> one "are you sure" on the `.bat` — an annoyance, nothing more. 🧯
+> Tell whoever gets the zip to **right-click it → Properties → tick Unblock** *before* extracting.
+> That clears the Mark of the Web from everything inside in one go, and Windows stays completely
+> quiet. Skip it and they get one "are you sure" on the `.bat` — an annoyance, not the wall the
+> unsigned `.exe` hits. 🧯
 
-First launch raises a Windows Firewall prompt. Tick **Private networks** and allow it, or the PC
-stays invisible to [Share](#-share).
+#### Installer
+
+Building this one has to happen **on a Windows PC** — PyInstaller freezes for the platform it
+runs on, so a `.exe` can't be produced from macOS:
+
+```bat
+py -m pip install -r requirements-windows.txt
+py scripts\build_windows.py            :: both variants -> dist\
+py scripts\build_windows.py personal   :: or just one
+```
+
+That gives `Mango Testing Setup.exe` and `Mango Testing (Mine) Setup.exe` if
+[Inno Setup](https://jrsoftware.org/isinfo.php) is on PATH, and a portable `.zip` of the same
+thing if it isn't.
+
+What comes out is unsigned, and Defender SmartScreen stops unsigned executables that arrive from
+the internet: *"Windows protected your PC"*, with Run hidden behind **More info**. Fine on your
+own machine, awkward to talk someone else through. Two ways past it and only two — ship the
+portable build instead, or sign this one. For signing, set `MANGO_SIGN_PFX` (plus
+`MANGO_SIGN_PASSWORD`), or `MANGO_SIGN_SHA1` for a certificate already in your store, and the
+build runs `signtool` over the app and the installer. It has to be a real certificate from a CA;
+a self-signed one changes nothing here, because SmartScreen judges reputation, not encryption. An
+OV certificate earns that reputation over a few weeks of downloads, an EV one has it from day one.
+
+First launch on either build raises a Windows Firewall prompt. Tick **Private networks** and
+allow it, or the PC stays invisible to [Share](#-share).
 
 ---
 
@@ -122,8 +178,8 @@ Everything word-shaped is on the **Words** page: the six test modes across the t
 | Custom | a mix of the modes you pick, up to two per word |
 | Every | all four modes over every word |
 
-Typed answers are graded forgivingly: typos, plural and suffix variation, and reworded
-definitions all still count. ✅
+Typed answers are graded by `services/grading_service.py`, which forgives typos, plural and
+suffix variation, and reworded definitions.
 
 ---
 
@@ -176,8 +232,9 @@ light a country up, anything that small gets zoomed to and pulses.
 **Type it** forgives what the word tests forgive. Case, accents and a leading "the" don't matter
 (`cote divoire`, `the gambia`), alternate names are accepted — `USA`, `Holland`, `Burma`,
 `Czechia`, `Zaire`, and every formal name Natural Earth carries — and a near miss is marked as a
-spelling slip rather than a wrong answer, using the same threshold as word tests. Grading happens
-in the browser, because a map game can't wait on a round trip per question.
+spelling slip rather than a wrong answer, using the same threshold as word tests
+(`WORD_TYPO_SIMILARITY_THRESHOLD` in `config.py`). Grading happens in the browser, because a map
+game can't wait on a round trip per question.
 
 Running out of chances puts the right answer up in orange for a beat before moving on, and the end
 of a run offers **Drill the misses** — just the ones you got wrong, again. Best score per map is
@@ -190,9 +247,10 @@ remembered.
 
 ### 🗺️ Where the maps come from
 
-The maps are built from [Natural Earth](https://www.naturalearthdata.com) (public domain) and
-[us-atlas](https://github.com/topojson/us-atlas). They ship already projected — each map is a list
-of SVG path strings and a viewBox, so the browser draws it with no projection maths, no GeoJSON
+`static/data/geo/` holds one file per map, built by `scripts/vendor_geo.py` from
+[Natural Earth](https://www.naturalearthdata.com) (public domain) and
+[us-atlas](https://github.com/topojson/us-atlas). They are already projected — each file is a list
+of SVG path strings and a viewBox, so the browser draws a map with no projection maths, no GeoJSON
 parsing and no mapping library. Every map is equal-area: Equal Earth for the globe, Lambert
 azimuthal for a region, Albers for the states.
 
@@ -224,28 +282,62 @@ streaks and stats stay where they are.
 |---|---|
 | `~/Documents/Mango Testing/data.json` | 🍎 macOS — everything you have done |
 | `%USERPROFILE%\Documents\Mango Testing\data.json` | 🪟 Windows — the same file |
+| `./data.json` | 🔨 running from source — the dev copy, untracked by git |
 
 One JSON file, editable by hand and easy to back up: the word list, the history, the streak, the
-stats, the cached sentences and the geo records.
+stats, the cached sentences and the geo records. The packaged app sets `MANGO_DATA_FILE` to point
+at the Documents copy, because a file inside an `.app` bundle isn't a place to write.
 
 Nothing is ever sent anywhere. There is no account, no telemetry and no network call at all
 except **Share**, which only talks to the other computer you point it at. 🔒
 
 ---
 
-## 🔔 Updates
+## 🧱 Source layout
 
-Mango Testing checks [`updates/latest.json`](updates/latest.json) on this repository and tells you
-when a newer version is out. It carries nothing about you, and the download is whatever is
-attached to the matching release. 📡
+Flask, layered so a route never touches a file and a service never renders anything:
+
+```
+app.py          the Flask app + window/launcher glue
+config.py       every tunable, including the typo threshold
+launcher.py     starts the server and opens the chromeless window
+routes/         one module per page: words · test · geo · history · accuracy · share · dashboard
+services/       the logic: grading · sentences · stats · streaks · history · geo · share
+data/store.py   the only module that touches data.json
+static/         css · js · fonts · img · data/geo (the projected maps)
+scripts/        the build scripts: macOS app, Windows exe, Windows portable, asset vendoring
+```
+
+| 📄 File | Purpose |
+| --- | --- |
+| `data/store.py` | Load and save, with the defaults a fresh install starts from. The storage backend can change here without touching anything else |
+| `services/grading_service.py` | What counts as right — typos, plurals, suffixes, reworded definitions |
+| `services/streak_service.py` | The perfect-test streak, kept apart from the geo records on purpose |
+| `scripts/vendor_geo.py` | Turns Natural Earth and us-atlas into pre-projected SVG paths |
+| `scripts/build_app.py` | The macOS `.app` and both `.dmg` installers |
+| `scripts/build_windows_portable.py` | The zip that needs no Python and no install |
+| `config.py` | Thresholds and paths, including `MANGO_DATA_FILE` |
+
+---
+
+## 🔨 Running from source
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python launcher.py
+```
+
+First run writes a `data.json` next to the source with an empty list in it. That file is in
+`.gitignore` — it is your data, not the app's.
 
 ---
 
 ## ⚖️ Licence
 
-Mango Testing is **free to use** but **not open source**. It may not be redistributed, modified,
-resold, reverse engineered, or presented as anyone else's work. The full terms are in
-[`LICENSE`](LICENSE).
+Mango Testing is **free to use** but **not open source**. The source is published here to be
+read, not reused: it may not be redistributed, resold, built upon, or presented as anyone else's
+work. The full terms are in [`LICENSE`](LICENSE).
 
 Map data is not mine and is not covered by that: Natural Earth is public domain, and us-atlas
 carries its own licence.
@@ -258,6 +350,8 @@ Copyright © 2026 Mingyu. All rights reserved.
 
 **Made with 🥭 by Mingyu**
 
-🆓 Free forever · 🔒 Nothing leaves your computer · 🍎🪟 macOS & Windows
+🆓 Free forever · 🔒 Nothing leaves your computer · 🍎🪟 macOS and Windows
+
+Part of [🥭 MangoApps](https://github.com/mannnnnnnngo/MangoApps)
 
 </div>

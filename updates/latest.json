@@ -1,10 +1,10 @@
 {
   "version": "1.0.0",
   "build": 10000,
-  "publishedAt": "2026-09-12",
+  "publishedAt": "2026-09-13",
   "minimumSystemVersion": "11.0",
-  "notes": "First release. A vocabulary and geography trainer: six ways to drill words, fourteen maps, and nothing that leaves the machine.",
+  "notes": "First release.",
   "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.0.0/mango-testing-1.0.0.dmg",
-  "sha256": "",
+  "sha256": "af12fd5ec81c1771a82fdc0d6df466f440151017ac80cb7f7dc35e12e258dbd8",
   "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.0.0"
 }
