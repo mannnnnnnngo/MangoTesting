@@ -13,7 +13,7 @@ Made by Mingyu 🧑‍💻
 ![macOS](https://img.shields.io/badge/macOS-11%2B-202020?style=for-the-badge&logo=apple&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?style=for-the-badge&logo=windows&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-Flask-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Version](https://img.shields.io/badge/version-1.0.0-7C5CFF?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.1.0-7C5CFF?style=for-the-badge)
 ![Price](https://img.shields.io/badge/price-free-2EA043?style=for-the-badge)
 ![Privacy](https://img.shields.io/badge/data%20sent%20anywhere-none-0EA5E9?style=for-the-badge)
 
@@ -42,6 +42,7 @@ Made by Mingyu 🧑‍💻
 | [📥 Install](#-install) | [🍎 macOS](#-macos) | [🪟 Windows](#-windows) |
 | [🔤 Words](#-words) | [🌍 Geo](#-geo) | [🗺️ Where the maps come from](#️-where-the-maps-come-from) |
 | [🕘 History and stats](#-history-and-stats) | [📡 Share](#-share) | [🗂️ Where things live](#️-where-things-live) |
+| [⚙️ Settings](#️-settings) | [🕶️ Privacy](#️-privacy) | [🆕 What's new in 1.1.0](#-whats-new-in-110) |
 | [🧱 Source layout](#-source-layout) | [🔨 Running from source](#-running-from-source) | [⚖️ Licence](#️-licence) |
 
 ---
@@ -85,14 +86,23 @@ unidentified-developer warning. Right-click the app → **Open** → **Open** cl
 
 > [!TIP]
 > The app needs Python, which every Mac has once Apple's free Command Line Tools are installed.
-> If they aren't, opening the app shows a dialog explaining that and offering an **Install
-> Python** button that kicks off Apple's installer — no Terminal, no Apple account. If that
-> dialog can't be shown for any reason, the instructions open in TextEdit instead, so a missing
-> Python never looks like an app that just does nothing. 🐍
+> If it can't find one it can use, opening the app shows a dialog explaining that and offering an
+> **Install Python** button that kicks off Apple's installer — no Terminal, no Apple account. 🐍
 
 A Mac missing the tools still *has* a file at `/usr/bin/python3` — a stub whose only job is to
-prompt for them — so the launcher tests that the interpreter actually runs, rather than that the
-path exists.
+prompt for them — so testing that the path exists proves nothing. From 1.1.0 the app goes further
+and tests what actually matters: it asks each Python it can find to **import the Flask that ships
+inside the bundle**, and uses the first one that can. Apple's, Homebrew's and python.org's are all
+tried, in that order, so a Mac with a working Python in any of those places starts without being
+asked for anything.
+
+### When it says it couldn't start
+
+It now says **why**. Earlier versions sent the server's error output to `/dev/null` and offered
+"restarting your Mac and opening it again usually clears this" — which was never true, because
+nothing that stops the server from starting is transient. The dialog now shows the actual last
+line of the failure and has a **Show Log** button; the full log is at
+`~/Library/Logs/Mango Testing.log`.
 
 ### 🪟 Windows
 
@@ -273,6 +283,56 @@ different questions and are stored apart for that reason.
 **Share** sends your word list to another machine on the same Wi-Fi — no account, no server in
 the middle, nothing leaving the local network. The receiving copy gets the words only; history,
 streaks and stats stay where they are.
+
+---
+
+## ⚙️ Settings
+
+Four panes, with the tabs down the left the way the four Mac apps' settings windows have them:
+
+| Pane | What's in it |
+|---|---|
+| ⚙️ **General** | *Open at login*, and where `data.json` lives |
+| 🔽 **Updates** | This version, a Check button, and switches for checking, downloading and installing by itself |
+| 🕶️ **Privacy** | What is kept and what is sent. Nothing is sent. |
+| ❓ **Tutorial** | Replays the eight-step tour, and lists it in short |
+
+*Open at login* writes a LaunchAgent rather than adding a Login Item. Both do the same job, but a
+Login Item has to be added by driving System Events through AppleScript — which needs Automation
+permission, puts a prompt in front of you for something you just asked for, and fails quietly if
+you decline. A plist in `~/Library/LaunchAgents` needs no permission and is a file you can look at.
+
+The **?** button at the end of the header replays the tutorial from any page.
+
+---
+
+## 🕶️ Privacy
+
+**Nothing leaves this computer on its own.** No account, no analytics, no server.
+
+- Your words, history and streak are one JSON file on this machine.
+- The app itself runs on this machine: the page you are looking at is served by Mango Testing over
+  a loopback address nothing outside can reach.
+- Every font, script and map is served from here too, which is why the app looks and behaves
+  identically with Wi-Fi off.
+- **Share** is the one thing that sends anything anywhere, and only to another computer on your
+  own network, after you pick it and they accept. It never goes through anyone else's server.
+
+The only request it makes by itself is reading one small text file on GitHub to find out whether a
+newer version exists. Settings → Updates switches even that off.
+
+---
+
+## 🆕 What's new in 1.1.0
+
+| | |
+|---|---|
+| 🛠️ **"Couldn't start" says why** | The real error, a **Show Log** button, and a log at `~/Library/Logs/Mango Testing.log`. The old message suggested restarting your Mac, which never helped. |
+| 🐍 **It finds a Python that works** | Each candidate interpreter is asked to import the bundled Flask; the first that can is used. Apple's, Homebrew's and python.org's are all tried. |
+| 🗂️ **Sidebar settings** | Four panes instead of one tab on a strip. |
+| 🚀 **Open at login** | Settings → General. |
+| 🕶️ **A Privacy pane** | In the app, not only in this file. |
+| 🖱️ **Dock icon reopens the window** | Clicking it with the window minimised or hidden brings it back instead of doing nothing. |
 
 ---
 
