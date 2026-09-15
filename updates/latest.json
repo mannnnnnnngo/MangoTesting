@@ -1,10 +1,10 @@
 {
-  "version": "1.1.0",
-  "build": 10100,
-  "publishedAt": "2026-09-14",
+  "version": "1.1.1",
+  "build": 10101,
+  "publishedAt": "2026-09-15",
   "minimumSystemVersion": "11.0",
-  "notes": "- fix couldn't start, sidebar settings, open at login\n- updater and settings page with updates tab\n- release 1.0.0\n- merge release workflow\n- build prerequisites for ci\n- mark scripts executable\n- release workflow",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.1.0/mango-testing-1.1.0.dmg",
-  "sha256": "bdc0511adb98f3038ba27b46d404973023f38f132ffa1046bf55004bd8840642",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.1.0"
+  "notes": "update checks are now instant",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.1.1/mango-testing-1.1.1.dmg",
+  "sha256": "ea7244623672cfd632ea1bfce9af48c2095f24fc8747523d0ccbc82e59ee7f0f",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.1.1"
 }
