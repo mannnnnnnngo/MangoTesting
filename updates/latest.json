@@ -1,10 +1,10 @@
 {
-  "version": "1.2.0",
-  "build": 10200,
-  "publishedAt": "2026-11-09",
+  "version": "1.3.0",
+  "build": 10300,
+  "publishedAt": "2026-11-10",
   "minimumSystemVersion": "11.0",
-  "notes": "New TED tab: save a talk's link, the words you didn't understand and a short paragraph about how it made you feel, then test just that talk's words (Definition, Word, Memory, Sentence, Every) without touching your Words list.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.2.0/mango-testing-1.2.0.dmg",
-  "sha256": "4cceb84019d6f017c4540ff6a2fde9aa865ef110fb0d43f2a20fe20799c2eff9",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.2.0"
+  "notes": "New Updates tab at the top of every page (with a dot when there's an update), and the version number is in the footer. Windows: now has a real installer on every release and updates itself like the Mac app does.",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.3.0/mango-testing-1.3.0.dmg",
+  "sha256": "84e00355efaad26fb94fccc9f4bb98d7dc1f551fed266de3b0b6c2f9204b1532",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.3.0"
 }
