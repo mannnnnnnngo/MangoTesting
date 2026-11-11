@@ -6,5 +6,7 @@
   "notes": "Fixes Download and Install on Windows: the update now actually installs and Mango Testing reopens on the new version.",
   "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.4.1/mango-testing-1.4.1.dmg",
   "sha256": "a4f23720805880e94a64a8db72cc5eaa20507e6ce82e9a05619faed5459c6a6d",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.4.1"
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.4.1",
+  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.4.1/mango-testing-1.4.1-windows-setup.exe",
+  "windowsSha256": "e90a74855a80dfcf766aebb4f68f5f187a250d07b16f3d501b6faabe5deac8e2"
 }
