@@ -1,12 +1,10 @@
 {
-  "version": "1.4.0",
-  "build": 10400,
+  "version": "1.4.1",
+  "build": 10401,
   "publishedAt": "2026-11-11",
   "minimumSystemVersion": "11.0",
-  "notes": "Word groups: keep separate word lists (like SAT words and textbook words) and switch between them on the Words page. Add, New List and every test use the group that's open. Your current list becomes your first group.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.4.0/mango-testing-1.4.0.dmg",
-  "sha256": "e9c36036767fb13b19ea7f4d19cf4eace20afff74396719afeb612477f2ee261",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.4.0",
-  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.4.0/mango-testing-1.4.0-windows-setup.exe",
-  "windowsSha256": "ae26e5bc261f2dbe30936797cf7eb48df020e4a7b57810ea06fb1f2a3974822b"
+  "notes": "Fixes Download and Install on Windows: the update now actually installs and Mango Testing reopens on the new version.",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.4.1/mango-testing-1.4.1.dmg",
+  "sha256": "a4f23720805880e94a64a8db72cc5eaa20507e6ce82e9a05619faed5459c6a6d",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.4.1"
 }
