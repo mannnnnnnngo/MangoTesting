@@ -1,12 +1,10 @@
 {
-  "version": "1.5.0",
-  "build": 10500,
+  "version": "1.5.1",
+  "build": 10501,
   "publishedAt": "2026-11-16",
   "minimumSystemVersion": "11.0",
-  "notes": "The Mac app now carries its own Python, so it opens right away without installing Apple's Command Line Tools.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.0/mango-testing-1.5.0.dmg",
-  "sha256": "c043cbd3d62a96411f640bb1d9f35d3cad80399d6bae76f4209b8709bb8ec896",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.0",
-  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.0/mango-testing-1.5.0-windows-setup.exe",
-  "windowsSha256": "50192f6787d43b0cbc43afae731c5d9f0d28e326272dc0af146b13ed56d820b5"
+  "notes": "Fixes Replace all my data (and other Are you sure? questions) doing nothing on Mac.",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.1/mango-testing-1.5.1.dmg",
+  "sha256": "c18df01cb8f5f8ad0cbd3eb5a2d4a97414aa74e29028e73e9ea3b326d55c6cf1",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.1"
 }
