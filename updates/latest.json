@@ -1,12 +1,10 @@
 {
-  "version": "1.5.2",
-  "build": 10502,
+  "version": "1.5.3",
+  "build": 10503,
   "publishedAt": "2026-11-16",
   "minimumSystemVersion": "11.0",
-  "notes": "Share over Wi-Fi tries every address the other computer has, and when it can't get through it tells you why and what to switch on.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.2/mango-testing-1.5.2.dmg",
-  "sha256": "a03d5a1b607c6bd6f287d015a3f588e1c18b0396d7b18df4cf63e909d64756ed",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.2",
-  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.2/mango-testing-1.5.2-windows-setup.exe",
-  "windowsSha256": "b9f18d45924813d4fe06b6be90610dae726aebaaed6cbec6069ef5a6cf6257b1"
+  "notes": "- Share over Wi-Fi now sends your TED talks too (Add merges them, Replace takes them).\n- Mac: updates now install and reopen the app on their own after downloading, waiting until any test you are taking is finished.",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.3/mango-testing-1.5.3.dmg",
+  "sha256": "082a55075dd2ae601bbe1207693f35bf210c8cf0c4db9d4043d836e1fcabfa3d",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.3"
 }
