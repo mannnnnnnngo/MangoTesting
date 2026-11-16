@@ -6,5 +6,7 @@
   "notes": "- Share over Wi-Fi now sends your TED talks too (Add merges them, Replace takes them).\n- Mac: updates now install and reopen the app on their own after downloading, waiting until any test you are taking is finished.",
   "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.3/mango-testing-1.5.3.dmg",
   "sha256": "082a55075dd2ae601bbe1207693f35bf210c8cf0c4db9d4043d836e1fcabfa3d",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.3"
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.3",
+  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.3/mango-testing-1.5.3-windows-setup.exe",
+  "windowsSha256": "7944ef1d4fc4be7bb8156aea6c36c4ba695245b549883d4d6f1f2703067db2b8"
 }
