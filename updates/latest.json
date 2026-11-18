@@ -6,5 +6,7 @@
   "notes": "Adding words keeps the whole word before the colon, dashes and commas included (like co-, con-: with; together). Press Enter on the results page to start one more test.",
   "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.4/mango-testing-1.5.4.dmg",
   "sha256": "65ac7da48adafb1012f830661a36760eb24aab381f4acd9be6da698c57668bf3",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.4"
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.4",
+  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.4/mango-testing-1.5.4-windows-setup.exe",
+  "windowsSha256": "e09e5123c8361bec06417128f707d1d4ff2e64e65dc9f96ff4157304e46c24ac"
 }
