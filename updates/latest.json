@@ -6,5 +6,7 @@
   "notes": "Updates are only offered once they're ready for your computer (the Download & Install button could do nothing before), and one download at a time.",
   "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.6/mango-testing-1.5.6.dmg",
   "sha256": "3f4fffdf9eca4cdcbfb94bf25ee5e8ffc6d633d12a8b5fe783544a8c339431e3",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.6"
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.6",
+  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.6/mango-testing-1.5.6-windows-setup.exe",
+  "windowsSha256": "d34ae24770720b7a3a9b7a7cb5163332ffa64765eda947660808bd881c2b77f9"
 }
