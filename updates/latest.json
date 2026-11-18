@@ -1,10 +1,10 @@
 {
-  "version": "1.5.5",
-  "build": 10505,
+  "version": "1.5.6",
+  "build": 10506,
   "publishedAt": "2026-11-18",
   "minimumSystemVersion": "11.0",
   "notes": "Updates are only offered once they're ready for your computer (the Download & Install button could do nothing before), and one download at a time.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.5/mango-testing-1.5.5.dmg",
-  "sha256": "48d99076dce1e07bfa0ee81961ae2fb89444a8241f733ea2bc3b7d571e256eb2",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.5"
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.6/mango-testing-1.5.6.dmg",
+  "sha256": "3f4fffdf9eca4cdcbfb94bf25ee5e8ffc6d633d12a8b5fe783544a8c339431e3",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.6"
 }
