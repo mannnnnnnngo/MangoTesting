@@ -1,12 +1,10 @@
 {
-  "version": "1.5.4",
-  "build": 10504,
+  "version": "1.5.5",
+  "build": 10505,
   "publishedAt": "2026-11-18",
   "minimumSystemVersion": "11.0",
-  "notes": "Adding words keeps the whole word before the colon, dashes and commas included (like co-, con-: with; together). Press Enter on the results page to start one more test.",
-  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.4/mango-testing-1.5.4.dmg",
-  "sha256": "65ac7da48adafb1012f830661a36760eb24aab381f4acd9be6da698c57668bf3",
-  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.4",
-  "windowsDownloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.4/mango-testing-1.5.4-windows-setup.exe",
-  "windowsSha256": "e09e5123c8361bec06417128f707d1d4ff2e64e65dc9f96ff4157304e46c24ac"
+  "notes": "Updates are only offered once they're ready for your computer (the Download & Install button could do nothing before), and one download at a time.",
+  "downloadURL": "https://github.com/mannnnnnnngo/MangoTesting/releases/download/v1.5.5/mango-testing-1.5.5.dmg",
+  "sha256": "48d99076dce1e07bfa0ee81961ae2fb89444a8241f733ea2bc3b7d571e256eb2",
+  "releasePage": "https://github.com/mannnnnnnngo/MangoTesting/releases/tag/v1.5.5"
 }
